@@ -1,0 +1,24 @@
+server:
+  port: 2222 #服务端口号
+spring:
+  application:
+    #服务名称，对应注册到Eureka的实例名称，后续Zuul路由映射的serviceId也是根据这个
+    name:  eureka-client
+eureka:
+  instance:
+    #主机名
+    hostname: localhost
+  client:
+    serviceUrl:
+      #服务注册中心的地址，指定这个会向Eureka注册一个名叫eureka-client的客户端
+      #单节点Eureka服务注册中心，不适用与生产环境，实际生产会用到Eureka Server集群
+      defaultZone: http://localhost:1111/eureka/
+
+#这里可以定义一些自定义的参数，可以使用@Value("${com.springcloud.author}")获取自定义参数的值
+com:
+  springcloud:
+    author: weixiaohuai
+    date: 2018-09-07 10:10
+
+
+
